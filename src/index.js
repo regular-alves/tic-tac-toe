@@ -70,6 +70,13 @@ class Board extends React.Component {
     );
   }
 
+  resetGame() {
+    this.setState({
+      squares: Array(9).fill(null),
+      xIsNext: true,
+    });
+  }
+
   render() {
     const winner = calculateWinner(this.state.squares);
     let status;
@@ -83,6 +90,7 @@ class Board extends React.Component {
     return (
       <div>
         <div className="status">{status}</div>
+        <div onClick={() => this.resetGame()}>restart</div>
         <div className="board-row">
           {this.renderSquare(0)}
           {this.renderSquare(1)}
