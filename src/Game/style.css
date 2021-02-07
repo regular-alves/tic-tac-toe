@@ -1,0 +1,52 @@
+.game {
+  display: flex;
+  flex-direction: row;
+}
+
+.game-board,
+.game-info {
+  display: flex;
+}
+
+.game-board {
+  width: 75%;
+  background: #fdfdfd;
+}
+
+.game-info {
+  width: 25%;
+  background: #f0f0f0;
+  flex-direction: column;
+}
+
+.game-status {
+  display: flex;
+  font-size: 18px;
+  line-height: 2.5em;
+  margin-bottom: 20px;
+}
+
+.game-status .phrase {
+  flex-grow: 1;
+  padding: 0 10px;
+  background: #3b3b3b;
+  color: #fdfdfd;
+}
+
+.game-status .player {
+  flex-grow: 0;
+  width: 2.5em;
+  text-align: center;
+  background: #d0d0d0;
+}
+
+.history {
+  display: flex;
+  flex-direction: column-reverse;
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+}
+
+.history li {
+  margin-bottom: 15px;
+}

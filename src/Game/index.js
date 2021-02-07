@@ -1,5 +1,6 @@
 import React from 'react';
 import Board from '../Board';
+import './style.css';
 
 class Game extends React.Component {
   constructor(props) {
@@ -72,26 +73,13 @@ class Game extends React.Component {
     const current = history[this.state.stepNumber];
     const winner = this.calculateWinner();
 
-    const moves = this.state.history.map((step, move) => {
-      const desc = move ? 
-        `Go to move #${move}` :
-        'Go to game start';
-
+    const moves = history.map((step, move) => {
       return (
-        <li key={move}>
-          <button onClick={() => this.jumpTo(move)}>{desc}</button>
+        <li key={move} onClick={() => this.jumpTo(move)}>
+          <Board onClick={false} squares={step.squares}/>
         </li>
       )
     })
-
-    
-    let status;
-    
-    if(winner) {
-      status = `Winner: ${winner}`;
-    }else{
-      status = `Next player: ${this.state.xIsNext ? 'X' : 'O'}`;
-    }
 
     return (
       <div className="game">
@@ -99,8 +87,11 @@ class Game extends React.Component {
           <Board onClick={(i) => this.handleClick(i)} squares={current.squares}/>
         </div>
         <div className="game-info">
-          <div>{ status }</div>
-          <ol>{ moves }</ol>
+          <div className="game-status">
+            <div className="phrase">{winner ? 'Winner' : 'Next player'}</div>
+            <div className="player">{winner ? winner : (this.state.xIsNext ? 'X' : 'O')}</div>
+          </div>
+          <ol className="history">{ moves }</ol>
         </div>
       </div>
     );

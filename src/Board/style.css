@@ -1,0 +1,21 @@
+.board {
+  display: flex;
+  align-content: center;
+  flex-direction: column;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.board-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.board-row .square:last-child {
+  border-right: 0px;
+}
+
+.board-row:last-child .square {
+  border-bottom: 0px;
+}

@@ -1,11 +1,13 @@
+import './style.css';
+
 function Square(props) {
   return (
-    <button 
+    <span 
       className="square" 
       onClick={props.onClick}
     >
       {props.value}
-    </button>
+    </span>
   );
 }
 
