@@ -9,12 +9,13 @@
 }
 
 .game-board {
-  width: 75%;
+  flex-grow: 1;
   background: #fdfdfd;
 }
 
 .game-info {
   width: 25%;
+  max-width: 180px;
   background: #f0f0f0;
   flex-direction: column;
 }
@@ -49,4 +50,46 @@
 
 .history li {
   margin-bottom: 15px;
+}
+
+.history li .square {
+  border-width: 0 2px 2px 0;
+  font-size: 18px;
+  line-height: 40px;
+  height: 40px;
+  padding: 0;
+  text-align: center;
+  width: 40px;
+  display: block;
+}
+
+@media all and (max-width: 765px) {
+  .game {
+    flex-direction: column;
+  }
+
+  .game-info {
+    max-width: 100%;
+    width: 100%;
+    height: 200px;
+  }
+
+  .history {
+    flex-direction: row;
+    justify-content: space-around;
+    max-height: 139px;
+    overflow: scroll;
+  }
+
+  .history li {
+    flex: 0 0 auto;
+    width: 25%;
+  }
+}
+
+@media all and (max-width: 540px) {
+  .history li {
+    flex: 0 0 auto;
+    width: 33%;
+  }
 }
